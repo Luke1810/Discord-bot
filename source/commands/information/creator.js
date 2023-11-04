@@ -1,0 +1,15 @@
+const { EmbedBuilder } = require('discord.js');
+const reply = require('../../utils/reply');
+
+module.exports = {
+  name: 'creator',
+  description: 'zeigt dir meine Erschaffer',
+
+  run: function (message) {
+    const embed = new EmbedBuilder()
+      .setDescription('<@774960022157393932> mit Unterstützung von <@691550551825055775>')
+      .setColor('Random');
+
+      return reply(message, { embeds: [embed] });
+  }
+};
