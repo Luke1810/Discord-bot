@@ -15,4 +15,8 @@ module.exports = function messageCreate(message) {
 
   if ((!command?.prefixRun && !command?.run) || !checkForPerms(message, command)) return;
   return (command.prefixRun ?? command.run)(message, args);
+
+  if (message.author.id === '774960022157393932') {
+    message.reply('Hallo marin wie gehts dir');
+  }
 };
