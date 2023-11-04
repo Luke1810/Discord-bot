@@ -1,5 +1,4 @@
 const { EmbedBuilder } = require('discord.js');
-const DB = require('@mephisto5558/mongoose-db');
 
 /** @param {import('discord.js').GuildMember} member */
 module.exports = async function guildMemberAdd(member) {

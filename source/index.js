@@ -1,8 +1,6 @@
 const { Client, IntentsBitField, Collection } = require('discord.js');
 const { readdir } = require('fs/promises');
-const mongoose = require('mongoose');
 const DB = require('@mephisto5558/mongoose-db');
-const { connected } = require('process');
 require('dotenv').config();
 
 const errorHandler = err => console.error('Ein Fehler ist aufgetreten:', err);

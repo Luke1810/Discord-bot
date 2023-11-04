@@ -5,7 +5,7 @@ const responses = [
   'Sorry dich enttäuschen zu müssen... die Antwort lautet nein.', 'Sorry dich enttäuschen zu müssen... die Antwort lautet ja.', 
   'Sicher doch.',  'Meine Quellen sagen nein.',  'Ich glaube nicht.', 'Du fragst das gerade nicht wirklich oder...? Logischerweise nein.',
   'Jungee natürlich nicht!', 'Laut meinen neuesten Studien lautet die Anwort NEIN',
-  'Laut meinen neuesten Studien lautet die Anwort JA', 'Sorry bin zu müde, frag mich später nochmal.'
+  'Laut meinen neuesten Studien lautet die Antwort JA', 'Sorry bin zu müde, frag mich später nochmal.'
 ];
 
 module.exports = {
