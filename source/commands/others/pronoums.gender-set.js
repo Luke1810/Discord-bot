@@ -1,7 +1,3 @@
-const DB = require('@mephisto5558/mongoose-db');
-const { EmbedBuilder, Colors } = require('discord.js'); 
-const { arg } = require('mathjs');
-
 module.exports = {
   name: 'gender.set',
   description: 'Lege dein Gender und deine pronomen fest',
