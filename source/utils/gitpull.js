@@ -6,11 +6,11 @@ module.exports = async () => {
 
   try { data = await exec('git pull', { maxBuffer: 614400 }); }
   catch (err) {
-    log.error(`GIT PULL\nExec error: ${err}`);
+    console.error(`GIT PULL\nExec error: ${err}`);
     return err;
   }
 
-  log(
+  console.log(
     'GIT PULL\n' +
     (data.stdout ? `out: ${data.stdout.trim()}\n` : '') +
     (data.stderr ? `err: ${data.stderr.trim()}\n` : '')
