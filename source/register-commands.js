@@ -1,4 +1,4 @@
-const { REST, Options, ApplicationCommandOptionType } = require('discord.js');
+const { REST } = require('discord.js');
 require('dotenv').config()
 
 const commands = [

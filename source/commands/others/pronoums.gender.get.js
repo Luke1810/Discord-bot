@@ -1,6 +1,3 @@
-const DB = require('@mephisto5558/mongoose-db');
-const { EmbedBuilder, Colors } = require('discord.js');
-
 module.exports = {
   name: 'gender.get',
   description: 'Zeige deine gender und pronomen',
