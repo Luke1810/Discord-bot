@@ -29,12 +29,12 @@ prefixRun: async function (message) {
       },
       {
         name: 'Erstellt am',
-        value: user.createdAt.toLocaleDateString(),
+        value: user.createdAt.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' })
       },
       {
         name: 'Beigetreten am',
         value: member
-        ? member.joinedAt.toLocaleDateString()
+        ? member.joinedAt.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' })
         : 'Nicht auf diesem Server',
       },
       {
