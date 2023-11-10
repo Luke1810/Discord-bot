@@ -20,6 +20,7 @@ const images = [
 module.exports = {
   name: 'happy',
   description: 'Zeig deine freude',
+  aliases: ['glücklich'],
 
   /**@param {import('discord.js').Message}message*/
   prefixRun: function (message) {
