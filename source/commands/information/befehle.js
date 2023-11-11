@@ -23,7 +23,14 @@ module.exports = {
       const filter = (button) => button.customId === 'prev' || button.customId === 'next';
       const collector = sentMessage.createMessageComponentCollector({ filter, time: 60000 });
 
+      const authorId = message.author.id;
+
       collector.on('collect', async (buttonInteraction) => {
+
+        if (buttonInteraction.user.id !== authorId) {
+          return;
+        }
+
         await buttonInteraction.deferUpdate();
 
         if (buttonInteraction.customId === 'prev' && currentPage > 1) {
@@ -58,7 +65,7 @@ function createEmbed(page, totalPages, commands) {
           inline: true,
         }))
     )
-    .setFooter({ text: `Seite ${page}/${totalPages} | Alles in [] ist optional | Wenn die Buttons nicht direkt funktionieren, versuche es erneut` });
+    .setFooter({ text: `Seite ${page}/${totalPages} | Alles in [] ist optional` });
 }
 
 function createPaginationButtons(currentPage, totalPages) {
