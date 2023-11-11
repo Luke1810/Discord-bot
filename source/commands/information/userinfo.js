@@ -9,7 +9,7 @@ module.exports = {
  * @param {import('discord.js').Message} message
  */
 prefixRun: async function (message) {
-  // Verwenden Sie die erwähnte Person, wenn sie angegeben wurde, andernfalls den Autor der Nachricht
+
   const user = message.mentions.users.first() ?message.mentions.users.first() : message.author;
   const member = message.guild.members.cache.get(user.id);
   

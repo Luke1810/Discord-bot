@@ -5,7 +5,7 @@ module.exports = async function guildMemberAdd(member) {
   const guildId = member.guild.id;
   const db = member.client.db;
   db.fetchAll()
-  // Stellen Sie sicher, dass die Datenbank die richtigen Schlüssel verwendet, um Kanal und Nachricht abzurufen.
+
   const welcomeChannelId = await db.get(`Channel.${guildId}`);
   const welcomeMessage = await db.get(`Nachricht.${guildId}`);
 
@@ -20,7 +20,7 @@ module.exports = async function guildMemberAdd(member) {
 
   const welcomeEmbed = new EmbedBuilder()
     .setTitle(`Welcome, ${member.user.username}!`)
-    .setDescription(welcomeMessage) // Verwenden Sie die gespeicherte Willkommensnachricht
+    .setDescription(welcomeMessage) 
     .setThumbnail(member.user.displayAvatarURL())
     .setColor('Random');
 

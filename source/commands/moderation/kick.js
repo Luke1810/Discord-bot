@@ -1,7 +1,7 @@
 module.exports = {
   name: 'kick',
   description: 'Kicke einen user',
-  usage: 'user [grund]', // Klammern zeigen an, dass der Grund optional ist
+  usage: 'user [grund]',
   userPermissions: ['KickMembers'],
   botPermissions: ['KickMembers'],
 
@@ -15,7 +15,7 @@ module.exports = {
 
     if (!target.moderatable) return message.reply('Das darf ich nicht.');
 
-    let reason = args.slice(1).join(' '); // Grund wird jetzt als einziger Text erfasst, inklusive Leerzeichen
+    let reason = args.slice(1).join(' ');
 
     await target.kick({ reason });
 

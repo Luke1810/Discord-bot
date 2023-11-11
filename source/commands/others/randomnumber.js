@@ -9,24 +9,19 @@ module.exports = {
      */
     prefixRun: async function (message, args) {
   
-      // Überprüfe, ob genügend Argumente (2 Zahlen) vorhanden sind
       if (args.length !== 2) {
-        return message.reply('Du musst zwei Zahlen als Argumente angeben!');
+        return message.reply('Du musst 2 Zahlen nennen.');
       }
   
-      // Extrahiere die beiden Zahlen aus den Argumenten
       const num1 = parseInt(args[0]);
       const num2 = parseInt(args[1]);
   
-      // Überprüfe, ob die Argumente gültige Zahlen sind
       if (isNaN(num1) || isNaN(num2)) {
-        return message.reply('Ungültige Zahlen als Argumente!');
+        return message.reply('Ungültige Zahlen!');
       }
   
-      // Generiere eine zufällige Zahl zwischen den beiden angegebenen Zahlen
       const randomNumber = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
-  
-      // Sende die zufällige Zahl in den Discord-Textkanal
+
       message.channel.send(`Die zufällige Zahl zwischen ${num1} und ${num2} ist: ${randomNumber}`);
     }
   };

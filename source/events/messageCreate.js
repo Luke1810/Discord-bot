@@ -4,7 +4,6 @@ const prefix = '+';
 
 /**@param {import('discord.js').Message} message */
 module.exports = function messageCreate(message) {
-  // Verhindere Antworten auf Nachrichten von anderen Bots
   if (message.author.bot) return;
 
   if (!message.content.startsWith(prefix)) return;

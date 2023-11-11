@@ -12,12 +12,10 @@ module.exports = {
     const commands = message.client.commands;
     const totalPages = Math.ceil(commands.size / commandsPerPage);
 
-    // Initial page number
     let currentPage = 1;
 
     const embed = createEmbed(currentPage, totalPages, commands);
 
-    // Send the initial embed with pagination buttons
     reply(message, {
       embeds: [embed],
       components: [createPaginationButtons(currentPage, totalPages)],
@@ -32,7 +30,6 @@ module.exports = {
           currentPage++;
         }
 
-        // Update the embed and edit the message with new pagination buttons
         const updatedEmbed = createEmbed(currentPage, totalPages, commands);
         const updatedButtons = createPaginationButtons(currentPage, totalPages);
 
@@ -68,12 +65,12 @@ function createPaginationButtons(currentPage, totalPages) {
       new ButtonBuilder()
         .setCustomId('prev')
         .setLabel('Vorherige Seite')
-        .setStyle(1)  // Try 'SECONDARY' style
+        .setStyle(1) 
         .setDisabled(currentPage === 1),
       new ButtonBuilder()
         .setCustomId('next')
         .setLabel('Nächste Seite')
-        .setStyle(1)  // Try 'SECONDARY' style
+        .setStyle(1)  
         .setDisabled(currentPage === totalPages)
     );
 
