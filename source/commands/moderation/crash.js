@@ -2,6 +2,7 @@ module.exports = {
     name: 'crash',
     description: 'Schalte den Bot ab, eigentlich nur Luki',
     aliases: ['kill'], 
+    hideInHelp: true,
   
     /**
      * @param {import('discord.js').Message} message

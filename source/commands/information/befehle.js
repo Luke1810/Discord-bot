@@ -1,4 +1,4 @@
-const { EmbedBuilder, Colors, ActionRowBuilder, ButtonBuilder} = require('discord.js');
+const { EmbedBuilder, Colors, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 const reply = require('../../utils/reply');
 
 const prefix = '+';
@@ -9,7 +9,7 @@ module.exports = {
   description: 'Zeigt dir meine Befehle',
 
   run: function (message) {
-    const commands = message.client.commands;
+    const commands = message.client.commands.filter((command) => !command.hideInHelp);
     const totalPages = Math.ceil(commands.size / commandsPerPage);
 
     let currentPage = 1;
@@ -25,18 +25,18 @@ module.exports = {
 
       collector.on('collect', async (buttonInteraction) => {
         await buttonInteraction.deferUpdate();
-       
+
         if (buttonInteraction.customId === 'prev' && currentPage > 1) {
           currentPage--;
         } else if (buttonInteraction.customId === 'next' && currentPage < totalPages) {
           currentPage++;
         }
-       
+
         const updatedEmbed = createEmbed(currentPage, totalPages, commands);
         const updatedButtons = createPaginationButtons(currentPage, totalPages);
-       
+
         sentMessage.edit({ embeds: [updatedEmbed], components: [updatedButtons] });
-       });
+      });
     });
   },
 };
@@ -67,12 +67,12 @@ function createPaginationButtons(currentPage, totalPages) {
       new ButtonBuilder()
         .setCustomId('prev')
         .setLabel('Vorherige Seite')
-        .setStyle(1) 
+        .setStyle(1)
         .setDisabled(currentPage === 1),
       new ButtonBuilder()
         .setCustomId('next')
         .setLabel('Nächste Seite')
-        .setStyle(1)  
+        .setStyle(1)
         .setDisabled(currentPage === totalPages)
     );
 
