@@ -23,18 +23,20 @@ module.exports = {
       const filter = (button) => button.customId === 'prev' || button.customId === 'next';
       const collector = sentMessage.createMessageComponentCollector({ filter, time: 60000 });
 
-      collector.on('collect', (button) => {
-        if (button.customId === 'prev' && currentPage > 1) {
+      collector.on('collect', async (buttonInteraction) => {
+        await buttonInteraction.deferUpdate();
+       
+        if (buttonInteraction.customId === 'prev' && currentPage > 1) {
           currentPage--;
-        } else if (button.customId === 'next' && currentPage < totalPages) {
+        } else if (buttonInteraction.customId === 'next' && currentPage < totalPages) {
           currentPage++;
         }
-
+       
         const updatedEmbed = createEmbed(currentPage, totalPages, commands);
         const updatedButtons = createPaginationButtons(currentPage, totalPages);
-
+       
         sentMessage.edit({ embeds: [updatedEmbed], components: [updatedButtons] });
-      });
+       });
     });
   },
 };
