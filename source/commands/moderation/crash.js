@@ -11,8 +11,5 @@ module.exports = {
         await message.channel.send('Batbot geht jetzt schlafen... <:sleepyCat:1031563192142409748>');
         
         process.exit();
-      } else {
-        return
-      }
-    }
+    }}
   };
