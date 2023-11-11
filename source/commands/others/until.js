@@ -26,8 +26,6 @@ module.exports = {
     const timeDifference = targetDate - currentDate - 3600000;
 
     const years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365.25));
-    const daysInYear = Math.floor(timeDifference % (1000 * 60 * 60 * 24 * 365.25));
-    const months = Math.floor(daysInYear / 30); 
     const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
