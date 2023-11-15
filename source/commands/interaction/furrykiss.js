@@ -22,7 +22,7 @@ module.exports = {
   prefixRun: function (message) {
     const embed = new EmbedBuilder()
       .setTitle('Furrykiss')
-      .setDescription(message.mentions.users.first() ? `Du küsst <@${message.mentions.users.first().id}>` : 'Du küsst jemanden')
+      .setDescription(`Du küsst ${message.mentions.users.first() || 'jemanden'}`)
       .setImage('https://cdn.discordapp.com/attachments/' + images[Math.floor(Math.random() * images.length)])
       .setColor(Colors.White);
 

@@ -6,7 +6,7 @@ const images = [
   'https://media.tenor.com/9PAkJvbE6R0AAAAC/pat-cat.gif',
   'https://media.tenor.com/0Qg_yeRi0WUAAAAd/cat-ping.gif',
   'https://media.tenor.com/_PB6BjWgyL8AAAAd/herm%C3%A8s-chat.gif',
-  
+
 ];
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
   prefixRun: function (message) {
     const embed = new EmbedBuilder()
       .setTitle('Pat')
-      .setDescription(message.mentions.users.first() ? `Du streichelst <@${message.mentions.users.first().id}>` : 'Du streichelst jemanden')
+      .setDescription(`Du streichelst ${message.mentions.users.first() || 'jemanden'}`)
       .setImage(images[Math.floor(Math.random() * images.length)])
       .setColor(Colors.White);
 

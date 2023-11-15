@@ -15,14 +15,10 @@ module.exports = {
 
     if (!target.moderatable) return message.reply('Das darf ich nicht.');
 
-    let reason = args.slice(1).join(' ');
+    const reason = args.slice(1).join(' ');
 
     await target.kick({ reason });
 
-    if (reason) {
-      return message.reply(`${target.user.username} wurde gekickt aufgrund von: ${reason}`);
-    } else {
-      return message.reply(`${target.user.username} wurde gekickt.`);
-    }
+    return message.reply(`${target.user.username} wurde gekickt` + (reason ? `aufgrund von: ${reason}` : '.'));
   }
 };

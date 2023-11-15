@@ -1,53 +1,45 @@
-const { EmbedBuilder, Colors } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { getAverageColor } = require('fast-average-color-node');
 
 module.exports = {
   name: 'userinfo',
   description: 'Erfahre etwas über einen User',
 
-/**
- * @param {import('discord.js').Message} message
- */
-prefixRun: async function (message) {
+  /**@param {import('discord.js').Message} message */
+  prefixRun: async function (message) {
+    const target = message.mentions.members?.first() || message.mentions.users?.first() || message.member || message.author;
 
-  const user = message.mentions.users.first() ?message.mentions.users.first() : message.author;
-  const member = message.guild.members.cache.get(user.id);
-  
+    const embed = new EmbedBuilder()
+      .setTitle((target.user || target).username + '`s' + ' infos')
+      .setColor(parseInt((await getAverageColor(target.displayAvatarURL())).hex.substring(1), 16))
+      .setThumbnail(target.displayAvatarURL())
+      .addFields(
+        {
+          name: 'Server-Nickname',
+          value: target.nickname || 'Kein Nickname'
+        },
+        {
+          name: 'ID',
+          value: target.id
+        },
+        {
+          name: 'Erstellt am',
+          value: (target.user || target).createdAt.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' })
+        },
+        {
+          name: 'Beigetreten am',
+          value: target.joinedAt?.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Nicht auf diesem Server'
+        },
+        {
+          name: 'Rollen',
+          value: `${target.roles?.cache.size - 1 || 0}`
+        },
+        {
+          name: 'Rollen mit perms',
+          value: target.roles ? Array.from(target.roles.cache.values()).filter(e => e.permissions.toArray().length && e.name != '@everyone').join(', ') : 'Keine', inline: false
+        },
+      );
 
-  const embed = new EmbedBuilder()
-    .setTitle(user.username + '`s' + ' infos')
-    .setColor(parseInt((await getAverageColor(member.displayAvatarURL())).hex.substring(1), 16))
-    .setThumbnail(user.displayAvatarURL())
-    .addFields(
-      {
-        name: 'Server-Nickname',
-        value: member ? member.nickname || 'Kein Nickname' : 'Nicht auf diesem Server',
-      },
-      {
-        name: 'ID',
-        value: user.id,
-      },
-      {
-        name: 'Erstellt am',
-        value: user.createdAt.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' })
-      },
-      {
-        name: 'Beigetreten am',
-        value: member
-        ? member.joinedAt.toLocaleDateString('de', { day: '2-digit', month: '2-digit', year: 'numeric' })
-        : 'Nicht auf diesem Server',
-      },
-      {
-        name: 'Rollen',
-        value: `${member.roles.cache.size - 1} `,
-      },
-      {
-        name: 'Rollen mit perms',
-        value: Array.from(member.roles.cache.values()).filter(e => e.permissions.toArray().length && e.name != '@everyone').join(', '), inline: false, 
-      },
-      
-
-    );
-
-  return message.reply({ embeds: [embed] });
-}};
+    return message.reply({ embeds: [embed] });
+  }
+};
