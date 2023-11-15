@@ -8,7 +8,7 @@ module.exports = {
   name: 'help',
   description: 'Zeigt dir meine Befehle',
 
-   /**@param {import('discord.js').Message} message*/
+  /**@param {import('discord.js').Message} message*/
   run: function (message) {
     const commands = message.client.commands.filter((command) => !command.hideInHelp);
     const totalPages = Math.ceil(commands.size / commandsPerPage);

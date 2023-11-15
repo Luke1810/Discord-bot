@@ -6,6 +6,7 @@ extends: eslint:recommended
 overrides: []
 ignorePatterns: 
   - Templates/*
+  - unfinished/*
 parserOptions:
   ecmaVersion: latest
 rules:
