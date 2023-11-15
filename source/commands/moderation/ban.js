@@ -21,4 +21,4 @@ module.exports = {
 
     return message.reply(`${target.user.username} wurde gebannt` + (reason ? `aufgrund von: ${reason}` : '.'));
   }
-};;
+};

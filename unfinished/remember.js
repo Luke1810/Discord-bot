@@ -1,7 +1,7 @@
 const DB = require('@mephisto5558/mongoose-db');
 const db = new DB(process.env.MONGODB_URI, 'database');
 
-const prefix = "+"; // Hier ersetzen Sie "!" durch den tatsächlichen Präfix, den Sie verwenden
+const prefix = '+'; // Hier ersetzen Sie "!" durch den tatsächlichen Präfix, den Sie verwenden
 
 module.exports = {
   name: 'remember',
