@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports = async function guildMemberAdd(member) {
   const guildId = member.guild.id;
   const db = member.client.db;
-  db.fetchAll()
+  await db.fetchAll();
 
   const welcomeChannelId = await db.get(`Channel.${guildId}`);
   const welcomeMessage = await db.get(`Nachricht.${guildId}`);
@@ -20,7 +20,7 @@ module.exports = async function guildMemberAdd(member) {
 
   const welcomeEmbed = new EmbedBuilder()
     .setTitle(`Welcome, ${member.user.username}!`)
-    .setDescription(welcomeMessage) 
+    .setDescription(welcomeMessage)
     .setThumbnail(member.user.displayAvatarURL())
     .setColor('Random');
 

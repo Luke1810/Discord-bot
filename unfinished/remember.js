@@ -1,19 +1,19 @@
 const DB = require('@mephisto5558/mongoose-db');
 const db = new DB(process.env.MONGODB_URI, 'database');
 
-const prefix = "+" // Hier ersetzen Sie "!" durch den tatsächlichen Präfix, den Sie verwenden
+const prefix = "+"; // Hier ersetzen Sie "!" durch den tatsächlichen Präfix, den Sie verwenden
 
 module.exports = {
   name: 'remember',
   description: 'Lasse mich dich an etwas erinnern',
   usage: 'text zeitpunkt',
-    
+
   run: async function (message) {
     // Hier holen Sie den Text und den Zeitpunkt aus den Argumenten des Befehls
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const text = args.slice(1, -1).join(' '); // Text ist alles außer dem letzten Argument (dem Zeitpunkt)
     const timeSpecifier = args[args.length - 1]; // Das letzte Argument ist der Zeitpunkt, z.B. "10s" für Sekunden
-    if(!text) return message.reply('An was und wann soll ich dich erinnern?')
+    if (!text) return message.reply('An was und wann soll ich dich erinnern?');
 
     // Hier wird die Zeitdauer aus dem Zeitpunkt-Argument extrahiert
     const timeValue = parseInt(timeSpecifier); // Die Zahl aus dem Argument
@@ -43,7 +43,7 @@ module.exports = {
         if (nachricht) {
           const { Text, Dauer } = nachricht;
           const timeRemaining = Dauer - Date.now();
-    
+
           if (timeRemaining > 0) {
             setTimeout(() => {
               message.channel.send(`Erinnerung: ${Text}, Dauer: ${Dauer}`);
@@ -59,4 +59,6 @@ module.exports = {
       });
     } else {
       message.channel.send('Keine Daten in der Datenbank gefunden.');
-    }}}
+    }
+  }
+};

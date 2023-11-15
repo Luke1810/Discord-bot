@@ -31,7 +31,7 @@ module.exports = {
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-    
+
 
     return message.reply(`${years} Jahre, ${months} Monate, ${days} Tage, ${hours} Stunden, ${minutes} Minuten, ${seconds} Sekunden`);
   }
