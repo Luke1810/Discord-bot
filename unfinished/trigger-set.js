@@ -13,6 +13,6 @@ module.exports = {
   prefixRun: async function (message, args) {
     const db = message.client.db;
     const serverID = message.guild.id;
-    
+
   }
-}
+};

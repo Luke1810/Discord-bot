@@ -8,14 +8,17 @@ module.exports = {
   prefixRun: async function (message, args) {
     const db = message.client.db;
     await db.fetchAll();
-    const user = message.mentions.users.first() ?message.mentions.users.first() : message.author;
+
+    const user = message.mentions.users.first() || message.author;
     const serverID = message.guild.id;
-    
-    const Pronom = db.get(`Pronom.${user}.${serverID}`);
-    const Gender = db.get(`Gender.${user}.${serverID}`);
-    
-    if (Pronom && Gender) {
-        message.reply(`${user} gender ist ${Gender} und die pronomen sind ${Pronom}`);
+
+    const pronom = db.get(`Pronom.${user}.${serverID}`);
+    const gender = db.get(`Gender.${user}.${serverID}`);
+
+    if (pronom && gender) {
+      message.reply(`${user} gender ist ${gender} und die pronomen sind ${pronom}`);
     } else {
-        message.reply(`${user} hat keine gespeicherten Gender und Pronomen.`);
-    }}}
+      message.reply(`${user} hat keine gespeicherten Gender und Pronomen.`);
+    }
+  }
+};

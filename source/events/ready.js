@@ -13,10 +13,10 @@ const intervalMs = 12 * 60 * 60 * 1000;  // 12h
 module.exports = function ready(client) {
   console.log(`✅ ${client.user.username} is online.`);
 
-  let status = [{ name: 'Katzenvideos', type: ActivityType.Watching }]
+  let status = [{ name: 'Katzenvideos', type: ActivityType.Watching }];
 
   setInterval(() => {
     let random = Math.floor(Math.random() * status.length);
     client.user.setActivity(status[random]);
   }, 10000);
-}
+};
