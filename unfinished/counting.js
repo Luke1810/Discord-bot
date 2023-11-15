@@ -5,7 +5,7 @@ module.exports = {
   name: 'counting',
   description: 'Lege den counting channel fest',
   usage: 'channel',
- 
+
   run: async function (message) {
     const channel = message.mentions.channels.first();
 
@@ -36,4 +36,4 @@ module.exports = {
       message.reply(`nächster Wert: ${newNumber}`);
     }
   }
-}
+};

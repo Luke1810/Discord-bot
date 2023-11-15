@@ -19,7 +19,7 @@ module.exports = {
     const todoText = args.join(' ');
 
     db.push(`todoList.${serverID}.${authorID}`, 'todos', todoText);
-    
+
     message.reply(`"${todoText}" wurde zu deiner Todo-Liste hinzugefügt`);
   }
 };

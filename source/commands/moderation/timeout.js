@@ -10,15 +10,15 @@ function parseTimeToMilliseconds(time) {
   const unit = matches[2];
 
   switch (unit) {
-    case 's': 
+    case 's':
       return value * 1000;
-    case 'm': 
+    case 'm':
       return value * 60 * 1000;
-    case 'h': 
+    case 'h':
       return value * 60 * 60 * 1000;
-    case 'd': 
+    case 'd':
       return value * 24 * 60 * 60 * 1000;
-    case 'w': 
+    case 'w':
       return value * 7 * 24 * 60 * 60 * 1000;
     default:
       throw new Error('Ungültige Zeiteinheit. Verwende s, m, h, d oder w.');
@@ -42,8 +42,8 @@ module.exports = {
 
     if (!target.moderatable) return message.reply('Das darf ich nicht.');
 
-    let timeString = args[1];
-    let reason = args.slice(2).join(' '); 
+    const timeString = args[1];
+    const reason = args.slice(2).join(' ');
 
     if (!timeString || !/^\d+[smhdw]$/.test(timeString)) {
       return message.reply('Ungültiges Zeitformat. Verwende ein gültiges Format wie 30s, 2m, 1h, 1d, 1w.');
@@ -57,10 +57,6 @@ module.exports = {
 
     await target.disableCommunicationUntil(Date.now() + timeInMilliseconds);
 
-    if (reason) {
-      return message.reply(`${target.user.username} wurde gemutet für ${timeString} aufgrund von: ${reason}`);
-    } else {
-      return message.reply(`${target.user.username} wurde gemutet für ${timeString}.`);
-    }
+    return message.reply(`${target.user.username} wurde gemuted für ${timeString}` + (reason ? `aufgrund von: ${reason}` : '.'));
   }
 };

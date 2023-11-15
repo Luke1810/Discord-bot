@@ -6,6 +6,7 @@ module.exports = {
   name: 'uptime',
   description: 'Zeigt dir wie lange ich schon online bin',
 
+  /**@param {import('discord.js').Message} message*/
   run: function (message) {
     const embed = new EmbedBuilder()
       .setDescription(`Ich bin online seit: ${uptime().formatted}`)

@@ -14,16 +14,17 @@ module.exports = {
 
     if (args.length < 1) {
       return message.reply('Du musst dein Gender und deine Pronomen eingeben, mache es wie folgt: `+gender.set Male He/Him`');
-  }
-  
-  let gender = args[0];
-  let pronom = args.slice(1).join(' ');
-  
-  if (!gender || !pronom) {
+    }
+
+    const gender = args[0];
+    const pronom = args.slice(1).join(' ');
+
+    if (!gender || !pronom) {
       return message.reply('Du musst dein Gender und deine Pronomen eingeben, mache es wie folgt: `+gender.set Male He/Him`');
+    }
+
+    db.set(`Gender.${user}.${serverID}`, gender);
+    db.set(`Pronom.${user}.${serverID}`, pronom);
+    message.reply(`${message.author.username} ist ${gender} und bevorzugt es mit ${pronom} angesprochen zu werden`);
   }
-  
-  db.set(`Gender.${user}.${serverID}`, gender);
-  db.set(`Pronom.${user}.${serverID}`, pronom);
-  message.reply(`${message.author.username} ist ${gender} und bevorzugt es mit ${pronom} angesprochen zu werden`);
-}}
+};
