@@ -10,7 +10,7 @@ module.exports = {
 
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   prefixRun: async function (message, args) {
-    content = args.join(' ');
+    const content = args.join(' ');
     if (!content) return;
 
     try {
