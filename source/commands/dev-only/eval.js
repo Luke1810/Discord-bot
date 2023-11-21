@@ -1,6 +1,6 @@
 // Credits to https://github.com/Mephisto5558/Teufelsbot/blob/main/Commands/Owner-Only/eval.js
 const
-  vars = ['__dirname', '__filename', 'exports', 'module', 'require'],
+  vars = ['message', '__dirname', '__filename', 'exports', 'module', 'require'],
   BoundAsyncFunction = (async function () { }).constructor.bind(null, ...vars),
   BoundFunction = Function.bind(null, ...vars);
 
@@ -14,7 +14,7 @@ module.exports = {
     if (!content) return;
 
     try {
-      await (content.includes('await') ? new BoundAsyncFunction(content) : new BoundFunction(content)).call(this, message, __dirname, __filename, exports, module, require);
+      await (content.includes('await') ? new BoundAsyncFunction(content) : new BoundFunction(content))(message, __dirname, __filename, exports, module, require);
       await message.reply('Code:\n```js\n' + content + '\n```\nwurde fehlerlos ausgeführt.');
     }
     catch (err) {
