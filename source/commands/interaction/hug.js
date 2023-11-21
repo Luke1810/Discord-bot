@@ -17,7 +17,7 @@ module.exports = {
   prefixRun: function (message) {
     const embed = new EmbedBuilder()
       .setTitle('Hug')
-      .setDescription(`Du umarmst <@${message.mentions.users.first() || 'jemanden'}>`)
+      .setDescription(`Du umarmst ${message.mentions.users.first() || 'jemanden'}`)
       .setImage(images[Math.floor(Math.random() * images.length)])
       .setColor(Colors.White);
 
