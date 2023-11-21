@@ -6,7 +6,7 @@ module.exports = {
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   prefixRun: function (message, args) {
     if (!args.length)
-      return message.reply(`Verwende den Befehl wie folgt: !until DD.MM.YYYY`);
+      return message.reply('Verwende den Befehl wie folgt: !until DD.MM.YYYY');
 
     const targetDateStr = args[0];
     const parts = targetDateStr.split('.');
