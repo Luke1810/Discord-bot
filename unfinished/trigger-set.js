@@ -7,7 +7,6 @@ module.exports = {
     const db = message.client.db;
     const serverID = message.guild.id;
 
-<<<<<<< HEAD
     if (args.length < 2) {
       return message.reply('Ungültige Verwendung. `+trigger.set trigger reply`');
     }
@@ -18,8 +17,5 @@ module.exports = {
     db.set(`${trigger}.${serverID}`, `${botReply}`);
 
     message.reply(`Trigger \`${trigger}\` mit Antwort \`${botReply}\` wurde hinzugefügt.`);
-  },
-=======
   }
->>>>>>> 5c3cc3ef8f19f6acce0bf03f3a16327d57db0fc5
 };
