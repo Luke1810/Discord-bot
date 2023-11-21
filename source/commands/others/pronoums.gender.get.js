@@ -5,7 +5,7 @@ module.exports = {
   /**
    * @param {import('discord.js').Message} message
    */
-  prefixRun: async function (message, args) {
+  prefixRun: async function (message) {
     const db = message.client.db;
     await db.fetchAll();
 
