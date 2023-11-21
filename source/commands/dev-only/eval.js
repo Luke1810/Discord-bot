@@ -8,8 +8,8 @@ module.exports = {
   name: 'eval',
   description: 'Führe JavaScript Code mit dem Bot aus',
 
-  /**@param {import('discord.js').Message} message*/
-  prefixRun: async function (message) {
+  /**@param {import('discord.js').Message}message @param {string[]}args*/
+  prefixRun: async function (message, args) {
     content = args.join(' ');
     if (!content) return;
 
