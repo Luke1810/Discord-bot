@@ -10,7 +10,7 @@ module.exports = {
 
   /**@param {import('discord.js').Message} message*/
   run: function (message) {
-    const commands = message.client.commands.filter((command) => !command.hideInHelp);
+    const commands = message.client.commands.filter((command) => !command.hideInHelp && command.category != 'dev-only');
     const totalPages = Math.ceil(commands.size / commandsPerPage);
 
     let currentPage = 1;
