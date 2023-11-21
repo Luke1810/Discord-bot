@@ -14,7 +14,7 @@ module.exports = {
     if (!content) return;
 
     try {
-      await (content.includes('await') ? new BoundAsyncFunction(content) : new BoundFunction(content)).call(message, __dirname, __filename, exports, module, require, lang);
+      await (content.includes('await') ? new BoundAsyncFunction(content) : new BoundFunction(content)).call(message, __dirname, __filename, exports, module, require);
       await message.reply('Code:\n```js\n' + content + '\n```\nwurde fehlerlos ausgeführt.');
     }
     catch (err) {
