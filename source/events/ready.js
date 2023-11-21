@@ -1,6 +1,6 @@
 const { ActivityType } = require('discord.js');
 
-function sendOnlineMessage() {
+function sendOnlineMessage(client) {
   const channel = client.channels.cache.get(channelId);
   if (channel) return channel.send('Ich bin Online');
   console.error('Channel zum online online Bescheid sagen nicht gefunden.');
