@@ -9,6 +9,7 @@ module.exports = {
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   prefixRun: function (message, args) {
     const mathExpression = args.join(' ');
+    if(!mathExpression) return message.reply('Du hast mir keine Zahl gegeben!')
     const result = evaluate(mathExpression);
 
     const embed = new EmbedBuilder()
