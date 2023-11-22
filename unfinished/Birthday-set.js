@@ -10,18 +10,14 @@ module.exports = {
   prefixRun: async function (message, args) {
     const db = message.client.db;
     const authorID = message.author.id;
-    const serverID = message.guild.id;
 
-    if (args.length < 1) {
-      return message.reply('Du musst das datum schon angeben.');
+    if (args.length < 3) {
+      return message.reply('Du musst das Datum im Format DD.MM.YYYY angeben.');
     }
 
-    const day= args[0];
-    const month= args[1]
-    const year= args[2];
+    const [day, month, year] = args;
+    db.push(`Birthday`, 'User',authorID, day, month, year);
 
-    db.push(`Birthday.${authorID}`, 'Datum', day, month, year);
-    
-    message.reply(`"${day}.${month}.${year}" wurde als dein Geburstag festgelegt`);
+    message.reply(`"${day}.${month}.${year}" wurde als dein Geburstag festgelegt.`);
   }
 };

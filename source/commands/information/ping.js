@@ -7,14 +7,12 @@ module.exports = {
 
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   prefixRun: async function (message) {
-    // Messen Sie den Nachrichten-Sendeprozess-Ping
+
     const sentMessage = await message.channel.send('Pinging...');
     const messagePing = sentMessage.createdTimestamp - message.createdTimestamp;
 
-    // Messen Sie den Bot-Ping
-    const botPing = Math.max(Math.round(message.client.ws.ping), 0); // Stellen Sie sicher, dass der Bot-Ping nicht negativ ist
+    const botPing = Math.max(Math.round(message.client.ws.ping), 0);
 
-    // Messen Sie den API-Ping
     const apiPingStart = Date.now();
     await fetch('https://discord.com/api/v10/gateway');
     const apiPingEnd = Date.now();
@@ -29,7 +27,7 @@ module.exports = {
         { name: 'Nachricht senden', value: `${messagePing}ms`, inline: true },
 
       );
-    await sentMessage.delete(); // Löschen Sie die Ping-Nachricht
+    await sentMessage.delete();
 
     return reply(message, { embeds: [embed] });
   },
