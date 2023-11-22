@@ -6,7 +6,7 @@ const images = [
   'https://media.tenor.com/DRgXad_JuuQAAAAC/bobitos-mimis.gif',
   'https://media.tenor.com/G_IvONY8EFgAAAAC/aharen-san-anime-hug.gif',
   'https://media.tenor.com/wFxMAqCsQDoAAAAd/cats.gif',
-  'https://meia.tenor.com/kCZjTqCKiggAAAAC/hug.gif',
+
 ];
 
 module.exports = {
