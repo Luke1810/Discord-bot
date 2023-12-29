@@ -8,7 +8,7 @@ module.exports = {
   /**@param {import('discord.js').Message} message*/
   run: function (message) {
     const embed = new EmbedBuilder()
-      .setDescription('<@774960022157393932> mit Unterstützung von <@691550551825055775>')
+      .setDescription('<@774960022157393932>')
       .setColor('Random');
 
     return reply(message, { embeds: [embed] });
