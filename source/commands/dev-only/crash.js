@@ -5,7 +5,7 @@ module.exports = {
 
   /**@param {import('discord.js').Message} message*/
   prefixRun: async function (message) {
-    await message.reply('Batbot geht jetzt schlafen... <:sleepyCat:1031563192142409748>');
+    await message.reply('Batbot geht jetzt schlafen... <:sleepycat:>');
 
     process.exit(0);
   }
