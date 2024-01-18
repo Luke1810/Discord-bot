@@ -13,5 +13,3 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Luke1810_Discord-bot&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Luke1810_Discord-bot)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Luke1810_Discord-bot&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Luke1810_Discord-bot)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Luke1810_Discord-bot&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Luke1810_Discord-bot) -->
-
-[![Discord Server](https://discordapp.com/api/guilds/725378451988676609/widget.png?style=shield)](https://discord.gg/u6xjqzz)
