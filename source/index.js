@@ -24,7 +24,7 @@ process
     allowedMentions: { repliedUser: false }
   });
   try {
-    client.db = await new DB(process.env.MONGODB_URI, 'saves').fetchAll();
+    client.db = await new DB().init(process.env.MONGODB_URI, 'saves');
     console.log('Verbunden');
 
     client.commands = new Collection();
