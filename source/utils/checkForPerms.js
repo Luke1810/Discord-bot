@@ -1,7 +1,7 @@
 const { PermissionFlagsBits } = require('discord.js');
 const reply = require('./reply');
 
-const devIds = ['774960022157393932', '691550551825055775'];
+const devIds = ['774960022157393932'];
 
 /**
  * @param {import('discord.js').Message|import('discord.js').CommandInteraction}message
