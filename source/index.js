@@ -1,6 +1,6 @@
 const { Client, IntentsBitField, Collection } = require('discord.js');
 const { readdir } = require('fs/promises');
- const { DB } = require('@mephisto5558/mongoose-db');
+const { DB } = require('@mephisto5558/mongoose-db');
 const gitpull = require('./utils/gitpull');
 require('dotenv').config();
 
