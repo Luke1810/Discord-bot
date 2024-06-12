@@ -1,23 +1,24 @@
-const { MessageEmbed, EmbedBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: 'birthday.get',
   description: 'Zeigt die Liste aller Geburtstage',
 
-  /**@param {import('discord.js').Message} message*/
   prefixRun: async function (message) {
     const db = message.client.db;
-    const todoList = await db.get('Birthday.User');
+    await db.fetchAll();
 
-    if (todoList?.length > 0) {
+    const Geburtstagsliste = db.get('Birthday', 'User');
+
+    if (Array.isArray(Geburtstagsliste)) {
       const embed = new EmbedBuilder()
-        .setColor('White')
-        .setTitle('Die Geburtstagliste')
-        .setDescription(todoList.map(user => `${user.day}.${user.month}.${user.year}`).join('\n'));
+        .setColor('WHITE')
+        .setTitle('Die Geburtstage')
+        .setDescription(Geburtstagsliste.join(', '));
 
       return message.reply({ embeds: [embed] });
+    } else {
+      return message.reply('Es gibt keine Geburtstage in der Liste.');
     }
-
-    return message.reply('Es gibt keine Geburtstage!');
   }
 };
