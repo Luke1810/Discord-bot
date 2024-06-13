@@ -1,5 +1,4 @@
 const reply = require('../../utils/reply');
-const { EmbedBuilder } = require('discord.js');
 
 const responses = [
   'Joa könnt sein.', 'Definitiv.', 'Ja logisch, was ist das für eine frage....', 'Joa naja, ich weiß ja nicht.', 'Nein auf keinen fall!',
