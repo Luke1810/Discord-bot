@@ -57,6 +57,6 @@ module.exports = {
 
     await target.disableCommunicationUntil(Date.now() + timeInMilliseconds);
 
-    return message.reply(`${target.user.username} wurde gemuted für ${timeString}` + (reason ? `aufgrund von: ${reason}` : '.'));
+    return message.reply(`${target.user.username} wurde gemuted für ${timeString}` + (reason ? ` aufgrund von: ${reason}` : '.'));
   }
 };
