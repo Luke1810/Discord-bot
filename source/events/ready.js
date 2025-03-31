@@ -6,7 +6,7 @@ function sendOnlineMessage(client) {
   console.error('Channel zum online online Bescheid sagen nicht gefunden.');
 }
 
-const channelId = '747985947316060271';
+const channelId = '1160989870500630648';
 const intervalMs = 12 * 60 * 60 * 1000;  // 12h
 
 /**@param {import('discord.js').Client}client*/
